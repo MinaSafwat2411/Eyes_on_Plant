@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "eyes-on-plants-458321",
+  "private_key_id": "a59037e0f1fa96731755a71186858121693e8014",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC3J5UNUhpXLvZY\nkYhLhOa013hrqClW6GltnUcHmL0WJWj6PuXBRiAOs8Ks19eN9TfJma9y5XhZ/1Iw\n7hpOvTQeUy5brrXl1zfLCgljNRqyETX9pck4JZVPs/AtcUxGi5pEEvA3k9s2984u\n58d+A79u2jGCmibyGg92E7QHTSFFQthGTo4EwPDIug2QEswxcX5GVtGDpjzg4Fr1\n4Dyr8kC4qtlMVKs9sONLapZQxLCrBvmEDkespht40UI20G/3BG6jJZfS+wqxJF93\nB25KyOJ+jDuohA1VYkDxtmC805CzUPF7Q2rTOadU3c2Yp1bUZprOWeZGAhVeN4Bh\nFIs2uutvAgMBAAECggEAUAhSV+tICk/BossZORK+c0hyXOyy/8B4DUd8GcQy4AIB\n4NPqNq3rZTFEwJ1imiwMsCHhaj3+fKkWY74vrbd8lkG30KVD48bLIQRmPL0gSK4/\nnvI6Prghih3xNhI7h9oJ03RJFqgb0uWu6Y0rfZOqq4hZuR2eJg2gMvMCKGyaPLZs\nv6ADAHkqf0Rxjc0DCU/qHK6lo6R6S3+zQrhaSMZYYjVNcJwgZS3dW1Aff9LrqtF2\n6bnoQVwvK09R4WjofXW2fyFTekZ7t9n7PEb3wkLoVia+1hhEwTDxAHU1YJ0RL/eg\nCn/If7OU2cWrW6TL/RUdQkpaiD5VarFgtSDqGQ0ZQQKBgQD99jVipTtBrBAVypr8\nrssp33hKQsKVEGlyQiSq0LGu8UyKfS+IZgkZgUihT9uFKAH4qS2Vmj7D0qIvKUOh\nQCP3QU34Uv1D5aqmfuSXnKR9nYZmfQXEr7l98KCZCSSeDm/ht9MLPVVg+Xqbtjx2\nfU55zK9Fon/kl2s++zbiw2bNrwKBgQC4n+SVK5MDSQfFEwHUru5eMaoeX+vN5WQ5\nNdtkyss0Hve5KBqsLdUrHWuotPViuTH2LN3KXLQU71x/d5A7bTy/VhRnsNqhsrY1\nsD+onklqWEk9Y/ZLrGXRXuIxVKCmsfoYmU4VBvXHDsuOTiu23gYHOMx+58CpXita\nWPceohjuQQKBgCD+FV1lXddgRQ6vrYbaJmagM35iQekforNHSIAwcITrsCflr4Em\n0FPR6d+bAkfANNFbGSLwUOsbuBosYC7YqFN81mZGUcS6V3sdzRCtNulix40U/OTa\nd1yXICYBfBJUidBnEzHInAjnIDiOajhyevlzz+lZ/QdzbGlYNX8sJ3TdAoGADEvy\nAJF3aDecAd9DNvQzwihSqVVAMmV96GWS6EKtiBor67QlGqSu1wFNo13yHhIxprDU\nUN8dy2sp4P+Iprye2CuWjlV0KmLpyeekRcnNH/0jW6hlxiKEYY6NSDXXwWKHQs4r\nKjFde1Wb7y17seFVy3NYA3fSGDXCc3ELfInVWUECgYBva9IwDB1kGkHGTS7FuWvK\n5l7xPHYNQuvKipjnwIeqTmbk/rN4dpJWD9bqNxHp9Y8HfP5cHG/kyW9nKLPgJLKG\nVfR2Qoa4dHMd1D7NeX4SahqZRf1QWwF62F5uBndofZXV3PBaUwHvOqjv0W1reveO\nfFtRL1OIdfUFnrQAlIsdxg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "google-drive-eyes-on-plants@eyes-on-plants-458321.iam.gserviceaccount.com",
+  "client_id": "110799079571677079451",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/google-drive-eyes-on-plants%40eyes-on-plants-458321.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

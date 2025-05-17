@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1014080356550",
+    "project_id": "eyes-on-plant",
+    "storage_bucket": "eyes-on-plant.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014080356550:android:895fec573c3b3644d557c7",
+        "android_client_info": {
+          "package_name": "com.example.eyes_on_plant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfJUksWSdfzR-96zw9DGvHiluyWa4lKb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
