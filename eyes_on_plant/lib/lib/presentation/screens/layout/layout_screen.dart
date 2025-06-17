@@ -54,18 +54,7 @@ class LayoutScreen extends StatelessWidget {
                 SettingsScreen(),
               ],
             ),
-            floatingActionButton: FloatingActionButton(
-              onPressed: () {
-              },
-              backgroundColor: AppColors.japaneseLaurel10,
-              shape: CircleBorder(),
-              child: Icon(
-                Icons.camera_alt_outlined,
-                color: AppColors.white,
-              ),
-            ),
-            floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-            floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
             bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
               currentIndex: cubit.currentIndex,
@@ -110,18 +99,16 @@ class LayoutScreen extends StatelessWidget {
                   ),
                 ),
                 BottomNavigationBarItem(
-                  icon: Image.asset(
-                    "assets/images/ic_my_garden.png",
-                    width: 30,
-                    height: 30,
+                  icon: Icon(
+                    Icons.camera_alt_outlined,
+                    color: AppColors.sisal,
                   ),
-                  label: "My Garden",
-                  activeIcon: Image.asset(
-                    "assets/images/ic_my_garden.png",
-                    width: 30,
-                    height: 30,
+                  label: "Scan",
+                  activeIcon:Icon(
+                    Icons.camera_alt_outlined,
                     color: AppColors.japaneseLaurel10,
-                  ),
+
+                  ) ,
                 ),
                 BottomNavigationBarItem(
                   icon: Image.asset(

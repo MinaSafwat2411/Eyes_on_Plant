@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
+import '../../../../data/models/predict/PredictModel.dart';
 import '../../../../data/repositories/auth_repository.dart';
+import '../../../../data/services/dio_helper.dart';
 import '../states/layout_states.dart';
 
 class LayoutCubit extends Cubit<LayoutStates> {
@@ -11,13 +16,15 @@ class LayoutCubit extends Cubit<LayoutStates> {
   var authRepository = AuthRepository();
 
   var currentIndex = 0;
+  var predictions = PredictionModel();
 
   var pageController = PageController();
+  var image;
 
   var titles = [
     "Hi plant lover !",
     "Diseases and pests",
-    "My Garden",
+    "Scan",
     "Settings",
   ];
 
@@ -36,6 +43,23 @@ class LayoutCubit extends Cubit<LayoutStates> {
     try{
       authRepository.logout();
       emit(OnSuccess());
+    }catch(e){
+      emit(OnError());
+    }
+  }
+
+  void onTakePhotoBuyCamera()async{
+    try{
+      image = null;
+      final picker = ImagePicker();
+      final pickedFile = await picker.pickImage(source: ImageSource.values.elementAt(0));
+      if(pickedFile == null) return;
+      File imageFile = File(pickedFile.path);
+      image = imageFile;
+      emit(OnUploadImage());
+      var response = await DioHelper.postImage(imageFile);
+      predictions = PredictionModel.fromJson(response.data);
+      emit(OnUploadImage());
     }catch(e){
       emit(OnError());
     }

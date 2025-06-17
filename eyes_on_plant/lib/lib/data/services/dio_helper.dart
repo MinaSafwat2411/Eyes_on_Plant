@@ -1,67 +1,28 @@
+import 'dart:io';
 import 'package:dio/dio.dart';
-
 
 class DioHelper {
   static final Dio dio = Dio(
     BaseOptions(
-      baseUrl: '',
+      baseUrl: 'http://192.168.4.34:5000/', // Ensure this is accessible from your device/emulator
       receiveDataWhenStatusError: true,
     ),
   );
 
-  static Future<Response> getData({
-    required String url,
-    Map<String, dynamic>? query,
-    String lang = 'en',
-    String? token,
-  }) async {
-    dio.options.headers = {
-      'Accept-Language': lang,
-      'Authorization': "Bearer $token",
-      'Content-Type': 'application/json',
-    };
+  static Future<Response> postImage(File imageFile) async {
+    String fileName = imageFile.path.split('/').last;
+    FormData formData = FormData.fromMap({
+      "image": await MultipartFile.fromFile(imageFile.path, filename: fileName),
+    });
 
-    return await dio.get(
-      url,
-      queryParameters: query,
-    );
-  }
-
-  static Future<Response> postData({
-    required String url,
-    Map<String, dynamic>? data, // Make data required
-    Map<String, dynamic>? query, // Make query required
-    String lang = 'en',
-    String? token,
-  }) async {
-    dio.options.headers = {
-      'Accept-Language': lang,
-      'Authorization': "Bearer $token",
-      'Content-Type': 'application/json',    };
-
-    return await dio.post(
-      url,
-      queryParameters: query,
-      data: data,
-    );
-  }
-
-  static Future<Response> putData({
-    required String url,
-    Map<String, dynamic>? data, // Make data required
-    Map<String, dynamic>? query, // Make query required
-    String lang = 'en',
-    String? token,
-  }) async {
-    dio.options.headers = {
-      'Accept-Language': lang,
-      'Authorization': "Bearer $token",
-      'Content-Type': 'application/json',    };
-
-    return dio.put(
-      url,
-      queryParameters: query,
-      data: data,
-    );
+    try {
+      Response response = await dio.post(
+        'predict',
+        data: formData,
+      );
+      return response;
+    } catch (e) {
+      throw Exception('Error uploading image: $e');
+    }
   }
 }
