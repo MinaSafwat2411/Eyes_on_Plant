@@ -1,4 +1,5 @@
 import 'package:eyes_on_plant/lib/core/utils/app_colors.dart';
+import 'package:eyes_on_plant/lib/core/widgets/custom_loading.dart';
 import 'package:eyes_on_plant/lib/presentation/screens/layout/cubit/layout_cubit.dart';
 import 'package:eyes_on_plant/lib/presentation/screens/layout/screens/diagnose_screen.dart';
 import 'package:eyes_on_plant/lib/presentation/screens/layout/screens/home_screen.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/widgets/custom_snackbar.dart';
 import '../../routes.dart';
 
 class LayoutScreen extends StatelessWidget {
@@ -50,7 +52,12 @@ class LayoutScreen extends StatelessWidget {
               children: [
                 HomeScreen(),
                 DiagnoseScreen(),
-                MyGardenScreen(),
+                Stack(
+                  children: [
+                    MyGardenScreen(),
+                    if(state is OnLoading || state is OnUploadImage)CustomLoading()
+                  ],
+                ),
                 SettingsScreen(),
               ],
             ),
@@ -131,13 +138,23 @@ class LayoutScreen extends StatelessWidget {
         if(state is OnSuccess){
           context.replace(AppRoutePaths.chooseWay);
         }
+        if(state is OnError){
+          showCustomSnackBar(
+              context,
+              "Error From AI Model",
+              icon: Icons.error,
+              color: AppColors.red
+          );
+        }
       },
       buildWhen:
           (previous, current) =>
               current is OnScreenChange ||
               current is OnLoading ||
               current is OnError ||
-              current is OnSuccess,
+              current is OnSuccess ||
+              current is OnUploadImage ||
+              current is OnScanDone
     );
   }
 }

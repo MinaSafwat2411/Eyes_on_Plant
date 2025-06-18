@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/app_colors.dart';
+import '../../../../core/widgets/custom_bottom_sheet.dart';
 import '../cubit/layout_cubit.dart';
 import '../states/layout_states.dart';
 
@@ -20,7 +22,43 @@ class MyGardenScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      cubit.onTakePhotoBuyCamera();
+                      showModalBottomSheet<void>(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return CustomBottomSheet(
+                              widget: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: TextButton(child: Row(
+                                      children: [
+                                        Icon(Icons.camera_alt,color:  AppColors.japaneseLaurel,),
+                                        SizedBox(width: 10,),
+                                        Text("Take Image From Camera",style: TextStyle(
+                                          color:  AppColors.japaneseLaurel
+                                        ),),
+                                      ],
+                                    ),onPressed: () =>cubit.onTakePhotoBuyCamera(0)
+                                      ,),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: TextButton(child: Row(
+                                      children: [
+                                        Icon(Icons.image,color:  AppColors.japaneseLaurel),
+                                        SizedBox(width: 10,),
+                                        Text("Upload Image From Gallery",style: TextStyle(
+                                            color:  AppColors.japaneseLaurel
+                                        ),),
+                                      ],
+                                    ),onPressed: ()=> cubit.onTakePhotoBuyCamera(1)
+                                      ,),
+                                  ),
+                                ],
+                              )
+                          );
+                        },
+                      );
                     },
                     child: Container(
                       height: 350,
@@ -252,7 +290,11 @@ class MyGardenScreen extends StatelessWidget {
               ),
             ),
           ),
-      listener: (context, state) {},
+      listener: (context, state) {
+        if(state is OnLoading){
+          context.pop();
+        }
+      },
     );
   }
 }

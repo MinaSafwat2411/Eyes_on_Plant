@@ -48,18 +48,25 @@ class LayoutCubit extends Cubit<LayoutStates> {
     }
   }
 
-  void onTakePhotoBuyCamera()async{
+  void onTakePhotoBuyCamera(int index)async{
     try{
       image = null;
+      predictions = PredictionModel();
       final picker = ImagePicker();
-      final pickedFile = await picker.pickImage(source: ImageSource.values.elementAt(0));
+      final pickedFile = await picker.pickImage(
+        source: ImageSource.values.elementAt(index),
+        imageQuality: 70,
+        maxWidth: 1024,
+        maxHeight: 1024,
+      );
       if(pickedFile == null) return;
+      emit(OnLoading());
       File imageFile = File(pickedFile.path);
       image = imageFile;
       emit(OnUploadImage());
       var response = await DioHelper.postImage(imageFile);
       predictions = PredictionModel.fromJson(response.data);
-      emit(OnUploadImage());
+      emit(OnScanDone());
     }catch(e){
       emit(OnError());
     }
